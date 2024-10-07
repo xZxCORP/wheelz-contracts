@@ -1,0 +1,43 @@
+{
+  "name": "@zcorp/wheelz-protos",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "src/index.js",
+  "types": "src/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./src/index.js",
+      "types": "./src/index.d.ts"
+    }
+  },
+  "files": [
+    "src"
+  ],
+  "scripts": {
+    "compile-protos": "bash scripts/compile_protos.sh",
+    "build": "npm run compile-protos && npm run format && npm run lint",
+    "prepublishOnly": "npm run build",
+    "lint": "eslint . --fix",
+    "release": "bumpp package.json --commit --push --tag && npm publish",
+    "format": "prettier --write ."
+  },
+  "devDependencies": {
+    "@protobuf-ts/plugin": "^2.9.4",
+    "@protobuf-ts/protoc": "^2.9.4",
+    "@types/node": "^20.14.2",
+    "@zcorp/eslint-config": "latest",
+    "@zcorp/prettier-config": "latest",
+    "@zcorp/tsconfig": "latest",
+    "bumpp": "^9.4.1",
+    "eslint": "^8.57.0",
+    "prettier": "^3.3.1",
+    "tsx": "^4.19.1",
+    "typescript": "^5.4.5"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@protobuf-ts/runtime": "^2.9.4"
+  }
+}
