@@ -1,2 +1,3 @@
 // This file is auto-generated. Do not edit.
-export * from './generated/test.js';
+export * from './generated/shared.js';
+export * from './generated/user.js';

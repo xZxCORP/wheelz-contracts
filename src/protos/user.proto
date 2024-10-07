@@ -1,0 +1,43 @@
+syntax = "proto3";
+import "google/protobuf/timestamp.proto";
+package user;
+
+message User {
+  int32 id = 1;
+  string firstname = 2;
+  string lastname = 3;
+  string email = 4;
+  google.protobuf.Timestamp created_at = 5;
+}
+
+// GET /users
+message UserList { repeated User data = 1; }
+
+// GET /email
+message GetUserByEmailRequest { string email = 1; }
+
+// GET /users/:id
+message GetUserRequest { int32 id = 1; }
+
+message GetUserResponse { User data = 1; }
+
+// POST /users
+message CreateUserRequest {
+  string firstname = 1;
+  string lastname = 2;
+  string email = 3;
+}
+
+message CreateUserResponse { User data = 1; }
+
+// PATCH /users/:id
+message UpdateUserRequest {
+  optional string firstname = 1;
+  optional string lastname = 2;
+  optional string email = 3;
+}
+message UpdateUserResponse { string message = 1; }
+
+// DELETE /users/:id
+message DeleteUserRequest { int32 id = 1; }
+message DeleteUserResponse { string message = 1; }
