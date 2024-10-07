@@ -14,9 +14,10 @@
     "src"
   ],
   "scripts": {
-    "compile-protos": "bash scripts/compile_protos.sh",
-    "build": "npm run compile-protos",
-    "prepublishOnly": "npm run build",
+    "generate": "bash scripts/compile_protos.sh",
+    "build": "npm run generate",
+    "prepublishOnly": "npm run generate && npm run build",
+    "postinstall": "npm run generate",
     "release": "bumpp package.json --commit --push --tag && npm publish"
   },
   "devDependencies": {

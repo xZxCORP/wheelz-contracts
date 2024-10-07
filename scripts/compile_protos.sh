@@ -10,7 +10,7 @@ PROTOC_GEN_TS_PATH="${ROOT_DIR}/node_modules/.bin/protoc-gen-ts"
 SRC_DIR="${ROOT_DIR}/src/protos"
 
 # Directory to write generated code
-OUT_DIR="${ROOT_DIR}/src/generated"
+OUT_DIR="${ROOT_DIR}/dist"
 
 # Clean all existing generated files
 rm -rf "${OUT_DIR}"
@@ -25,11 +25,11 @@ protoc \
 
 # Generate index.ts
 echo "Generating index.ts..."
-INDEX_FILE="${ROOT_DIR}/src/index.ts"
+INDEX_FILE="${ROOT_DIR}/dist/index.ts"
 echo "// This file is auto-generated. Do not edit." > "${INDEX_FILE}"
 for file in "${OUT_DIR}"/*.ts; do
     filename=$(basename "$file" .ts)
-    echo "export * from './generated/${filename}.js';" >> "${INDEX_FILE}"
+    echo "export * from './${filename}.js';" >> "${INDEX_FILE}"
 done
 
 echo "Proto compilation completed successfully!"
