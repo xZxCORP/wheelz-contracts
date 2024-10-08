@@ -12,7 +12,7 @@
     "lint": "eslint . --fix",
     "build": "tsc",
     "prepublish": "npm run build",
-    "release": "bumpp package.json --commit --push --tag && npm publish"
+    "release": "bumpp package.json --commit --push --tag && npm run build && npm publish"
   },
   "devDependencies": {
     "@types/node": "^20.14.2",
