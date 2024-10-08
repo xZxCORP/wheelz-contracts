@@ -1,5 +1,5 @@
 {
-  "name": "@zcorp/wheelz-protos",
+  "name": "@zcorp/wheelz-contracts",
   "version": "1.0.5",
   "type": "module",
   "main": "dist/index.js",
