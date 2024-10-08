@@ -34,16 +34,7 @@ export const userContract = c.router(
       },
       summary: 'Get a user by id',
     },
-    getUserByEmail: {
-      method: 'GET',
-      path: `/emai/:id`,
-      responses: {
-        200: z.object({
-          data: userSchema,
-        }),
-      },
-      summary: 'Get a user by email',
-    },
+
     createUser: {
       method: 'POST',
       path: '/users',
@@ -71,6 +62,7 @@ export const userContract = c.router(
   {
     commonResponses: {
       404: basicResponseSchema,
+      422: basicResponseSchema,
       400: basicResponseSchema,
       500: basicResponseSchema,
     },
