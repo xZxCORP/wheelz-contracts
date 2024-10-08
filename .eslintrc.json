@@ -1,0 +1,5 @@
+{
+    "extends": [
+        "@zcorp/eslint-config/app"
+    ]
+}

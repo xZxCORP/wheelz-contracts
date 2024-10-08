@@ -2,29 +2,13 @@
   "name": "@zcorp/wheelz-protos",
   "version": "1.0.4",
   "type": "module",
-  "main": "src/index.js",
-  "types": "src/index.d.ts",
-  "exports": {
-    ".": {
-      "import": "./src/index.js",
-      "types": "./src/index.d.ts"
-    }
-  },
-  "files": [
-    "dist",
-    "src/protos",
-    "scripts"
-  ],
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "generate": "bash scripts/compile_protos.sh",
-    "build": "npm run generate",
-    "prepublishOnly": "npm run generate && npm run build",
-    "postinstall": "npm run generate",
+    "build": "tsc",
     "release": "bumpp package.json --commit --push --tag && npm publish"
   },
   "devDependencies": {
-    "@protobuf-ts/plugin": "^2.9.4",
-    "@protobuf-ts/protoc": "^2.9.4",
     "@types/node": "^20.14.2",
     "@zcorp/eslint-config": "latest",
     "@zcorp/prettier-config": "latest",
@@ -35,8 +19,5 @@
   },
   "publishConfig": {
     "access": "public"
-  },
-  "dependencies": {
-    "@protobuf-ts/runtime": "^2.9.4"
   }
 }

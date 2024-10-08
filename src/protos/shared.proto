@@ -1,7 +1,0 @@
-syntax = "proto3";
-package shared;
-
-message ErrorResponse {
-  string error_message = 1;
-  int32 error_code = 2;
-}
