@@ -5,6 +5,7 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
+    "lint": "eslint . --fix",
     "build": "tsc",
     "release": "bumpp package.json --commit --push --tag && npm publish"
   },
@@ -14,10 +15,13 @@
     "@zcorp/prettier-config": "latest",
     "@zcorp/tsconfig": "latest",
     "bumpp": "^9.4.1",
-    "tsx": "^4.19.1",
-    "typescript": "^5.4.5"
+    "typescript": "^5.6.2"
   },
   "publishConfig": {
     "access": "public"
+  },
+  "dependencies": {
+    "@ts-rest/core": "^3.51.0",
+    "zod": "^3.23.8"
   }
 }
