@@ -1,7 +1,8 @@
 import { initContract } from '@ts-rest/core';
 import { z } from 'zod';
 
-import { basicResponseSchema } from '../shared.js';
+import { basicResponseSchema } from '../shared/basic-response.schema.ts.js';
+import { healthContract } from '../shared/health/contract.js';
 import { userSchema } from './schemas/user.schema.js';
 import { userCreateSchema } from './schemas/user-create.schema.js';
 import { usersResponseSchema } from './schemas/user-response.schema.js';
@@ -10,7 +11,7 @@ import { userResponseSchema } from './schemas/users-response.schema.js';
 
 const c = initContract();
 
-export const userContract = c.router(
+const userContract = c.router(
   {
     getUsers: {
       method: 'GET',
@@ -68,3 +69,8 @@ export const userContract = c.router(
     },
   }
 );
+
+export const userWithHealthContract = c.router({
+  users: userContract,
+  health: healthContract,
+});
