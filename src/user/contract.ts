@@ -11,7 +11,7 @@ import { userResponseSchema } from './schemas/users-response.schema.js';
 
 const c = initContract();
 
-const userContract = c.router(
+const contract = c.router(
   {
     getUsers: {
       method: 'GET',
@@ -70,7 +70,7 @@ const userContract = c.router(
   }
 );
 
-export const userWithHealthContract = c.router({
-  users: userContract,
+export const userContract = c.router({
+  users: contract,
   health: healthContract,
 });

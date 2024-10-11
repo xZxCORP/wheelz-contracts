@@ -1,6 +1,6 @@
 {
   "name": "@zcorp/wheelz-contracts",
-  "version": "1.0.13",
+  "version": "1.0.14",
   "type": "module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -12,7 +12,7 @@
     "lint": "eslint . --fix",
     "build": "tsc",
     "prepublish": "npm run build",
-    "release": "bumpp package.json --commit --push --tag && npm run build && npm publish"
+    "release": "npm run lint && bumpp package.json --commit --push --tag && npm run build && npm publish"
   },
   "devDependencies": {
     "@types/node": "^20.14.2",
