@@ -4,6 +4,7 @@ import { healthContract } from '../shared/health/contract.js';
 import registerSchema from './schemas/register.js';
 import { userResponseSchema } from '../user/schemas/users-response.schema.js';
 import loginSchema from './schemas/login.js';
+import { basicResponseSchema } from '../shared/basic-response.schema.ts.js';
 
 const c = initContract();
 
@@ -28,6 +29,14 @@ const authorizationContract = c.router(
       summary: 'Login and give the token'
     }
   },
+  {
+    commonResponses: {
+      404: basicResponseSchema,
+      422: basicResponseSchema,
+      400: basicResponseSchema,
+      500: basicResponseSchema,
+    },
+  }
 );
 
   export const AuthorizationWithHealthContract = c.router({
