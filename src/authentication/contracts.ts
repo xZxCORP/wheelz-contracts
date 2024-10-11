@@ -8,7 +8,7 @@ import { basicResponseSchema } from '../shared/basic-response.schema.ts.js';
 
 const c = initContract();
 
-const authorizationContract = c.router(
+const authenticationContract = c.router(
   {
     register: {
       method: 'POST',
@@ -26,7 +26,16 @@ const authorizationContract = c.router(
       responses: {
         201: z.string()
       },
-      summary: 'Login and give the token'
+      summary: 'Login and reponds the token'
+    },
+    verify: {
+      method: 'POST',
+      path: 'verify',
+      body: z.string(),
+      responses: {
+        201: z.number()
+      },
+      summary: 'Verify JWT and responds with userId'
     }
   },
   {
@@ -39,7 +48,7 @@ const authorizationContract = c.router(
   }
 );
 
-  export const AuthorizationWithHealthContract = c.router({
-    authorization: authorizationContract,
+  export const AuthenticationWithHealthContract = c.router({
+    authentication: authenticationContract,
     health: healthContract,
   });
