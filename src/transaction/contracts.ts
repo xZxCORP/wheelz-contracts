@@ -49,6 +49,6 @@ export const contract = c.router(
   }
 );
 export const transactionContract = c.router({
-  users: contract,
+  transaction: contract,
   health: healthContract,
 });
