@@ -1,7 +1,7 @@
 import { initContract } from '@ts-rest/core';
+import { overallHealthStatusSchema } from '@zcorp/shared-typing-wheelz';
 
 import { basicResponseSchema } from '../basic-response.schema.ts.js';
-import { overallHealthStatusSchema } from './schemas/overall-health-status.schela.js';
 
 const c = initContract();
 

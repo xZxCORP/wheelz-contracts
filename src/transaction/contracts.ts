@@ -1,11 +1,13 @@
 import { initContract } from '@ts-rest/core';
+import {
+  createVehicleTransactionDataSchema,
+  deleteVehicleTransactionDataSchema,
+  updateVehicleTransactionDataSchema,
+  vehicleTransactionSchema,
+} from '@zcorp/shared-typing-wheelz';
 
 import { basicResponseSchema } from '../shared/basic-response.schema.ts.js';
 import { healthContract } from '../shared/health/contract.js';
-import { createVehicleTransactionDataSchema } from './schemas/create-vehicle-transaction-data.schema.js';
-import { deleteVehicleTransactionDataSchema } from './schemas/delete-vehicle-transaction-data.schema.js';
-import { updateVehicleTransactionDataSchema } from './schemas/update-vehicle-transaction-data.schema.js';
-import { vehicleTransactionSchema } from './schemas/vehicle-transaction.schema.js';
 
 const c = initContract();
 
