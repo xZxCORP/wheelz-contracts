@@ -13,6 +13,14 @@ const c = initContract();
 
 export const contract = c.router(
   {
+    getTransactions: {
+      method: 'GET',
+      path: '/transactions',
+      responses: {
+        200: vehicleTransactionSchema.array(),
+      },
+      summary: 'Get all transactions',
+    },
     submitTransaction: {
       method: 'POST',
       path: '/transactions',
