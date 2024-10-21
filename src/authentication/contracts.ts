@@ -6,6 +6,7 @@ import { healthContract } from '../shared/health/contract.js';
 import { userResponseSchema } from '../user/schemas/users-response.schema.js';
 import loginSchema from './schemas/login.js';
 import registerSchema from './schemas/register.js';
+import { tokenSchema } from './schemas/token.js';
 
 const c = initContract();
 
@@ -25,14 +26,14 @@ const contract = c.router(
       path: 'login',
       body: loginSchema,
       responses: {
-        201: z.string(),
+        201: tokenSchema,
       },
       summary: 'Login and reponds the token',
     },
     verify: {
       method: 'POST',
       path: 'verify',
-      body: z.string(),
+      body: tokenSchema,
       responses: {
         201: z.number(),
       },
