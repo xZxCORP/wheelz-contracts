@@ -35,7 +35,7 @@ const contract = c.router(
       path: 'verify',
       body: tokenSchema,
       responses: {
-        201: z.number(),
+        200: z.number(),
       },
       summary: 'Verify JWT and responds with userId',
     },
