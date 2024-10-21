@@ -23,7 +23,7 @@ const contract = c.router(
     },
     login: {
       method: 'POST',
-      path: 'login',
+      path: '/login',
       body: loginSchema,
       responses: {
         201: tokenSchema,
@@ -32,7 +32,7 @@ const contract = c.router(
     },
     verify: {
       method: 'POST',
-      path: 'verify',
+      path: '/verify',
       body: tokenSchema,
       responses: {
         200: z.number(),
