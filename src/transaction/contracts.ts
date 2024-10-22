@@ -31,7 +31,7 @@ export const contract = c.router(
       method: 'GET',
       path: '/transactions/:id',
       responses: {
-        200: vehicleTransactionSchema.array(),
+        200: vehicleTransactionSchema,
         404: basicResponseSchema,
       },
       summary: 'Get a transaction by id',
