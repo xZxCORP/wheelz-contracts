@@ -1,9 +1,9 @@
 import { z } from 'zod';
 
 export const paginationSchema = z.object({
-  page: z.coerce.number().int().min(1).default(1),
-  perPage: z.coerce.number().int().min(1).max(100).default(10),
-  total: z.coerce.number().int(),
+  page: z.coerce.number().min(1).default(1),
+  perPage: z.coerce.number().min(1).max(100).default(10),
+  total: z.coerce.number(),
 });
 export type Pagination = z.infer<typeof paginationSchema>;
 
