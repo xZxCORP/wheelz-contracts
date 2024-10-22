@@ -8,7 +8,11 @@ import {
 
 import { basicResponseSchema } from '../shared/basic-response.schema.ts.js';
 import { healthContract } from '../shared/health/contract.js';
-import { createPaginatedSchema, paginationParametersSchema } from '../shared/index.js';
+import {
+  createPaginatedSchema,
+  type InferPaginatedSchema,
+  paginationParametersSchema,
+} from '../shared/index.js';
 
 const c = initContract();
 
@@ -73,3 +77,4 @@ export const transactionContract = c.router({
   transactions: contract,
   health: healthContract,
 });
+export type PaginatedTransactions = InferPaginatedSchema<typeof vehicleTransactionSchema>;
