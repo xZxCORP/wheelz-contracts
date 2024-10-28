@@ -8,6 +8,11 @@ import {
 
 import { basicResponseSchema } from '../shared/basic-response.schema.ts.js';
 import { healthContract } from '../shared/health/contract.js';
+import {
+  createPaginatedSchema,
+  type InferPaginatedSchema,
+  paginationParametersSchema,
+} from '../shared/index.js';
 
 const c = initContract();
 
@@ -16,10 +21,20 @@ export const contract = c.router(
     getTransactions: {
       method: 'GET',
       path: '/transactions',
+      query: paginationParametersSchema,
       responses: {
-        200: vehicleTransactionSchema.array(),
+        200: createPaginatedSchema(vehicleTransactionSchema),
       },
       summary: 'Get all transactions',
+    },
+    getTransactionById: {
+      method: 'GET',
+      path: '/transactions/:id',
+      responses: {
+        200: vehicleTransactionSchema,
+        404: basicResponseSchema,
+      },
+      summary: 'Get a transaction by id',
     },
     submitTransaction: {
       method: 'POST',
@@ -62,3 +77,4 @@ export const transactionContract = c.router({
   transactions: contract,
   health: healthContract,
 });
+export type PaginatedTransactions = InferPaginatedSchema<typeof vehicleTransactionSchema>;

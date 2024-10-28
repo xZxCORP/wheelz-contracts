@@ -1,3 +1,5 @@
+import type { z } from 'zod';
+
 import { userSchema } from './user.schema.js';
 
 export const userUpdateSchema = userSchema
@@ -10,3 +12,4 @@ export const userUpdateSchema = userSchema
     firstname: true,
     lastname: true,
   });
+export type UserUpdate = z.infer<typeof userUpdateSchema>;
