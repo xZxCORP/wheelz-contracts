@@ -3,6 +3,7 @@ import { vehicleSchema } from '@zcorp/shared-typing-wheelz';
 
 import { basicResponseSchema } from '../shared/basic-response.schema.ts.js';
 import { healthContract } from '../shared/health/contract.js';
+import { getVehicleParametersSchema } from './schemas/get-vehicle-parameters.js';
 
 const c = initContract();
 
@@ -10,11 +11,12 @@ export const contract = c.router(
   {
     getVehicleOfTheChainByVin: {
       method: 'GET',
-      path: '/chain/:vin',
+      path: '/chain',
+      query: getVehicleParametersSchema,
       responses: {
         200: vehicleSchema,
       },
-      summary: 'Get vehicle from the chain by vin',
+      summary: 'Get vehicle from the chain by vin or license plate',
     },
   },
   {
