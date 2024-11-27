@@ -9,7 +9,7 @@ const c = initContract();
 
 export const contract = c.router(
   {
-    getVehicleOfTheChainByVin: {
+    getVehicleOfTheChain: {
       method: 'GET',
       path: '/chain',
       query: getVehicleParametersSchema,
