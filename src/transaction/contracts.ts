@@ -16,7 +16,7 @@ import {
 
 const c = initContract();
 
-export const contract = c.router(
+const contract = c.router(
   {
     getTransactions: {
       method: 'GET',
