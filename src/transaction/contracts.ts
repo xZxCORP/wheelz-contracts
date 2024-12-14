@@ -2,6 +2,7 @@ import { initContract } from '@ts-rest/core';
 import {
   createVehicleTransactionDataSchema,
   deleteVehicleTransactionDataSchema,
+  scraVehicleDataSchema,
   updateVehicleTransactionDataSchema,
   vehicleTransactionSchema,
 } from '@zcorp/shared-typing-wheelz';
@@ -62,6 +63,16 @@ const contract = c.router(
       responses: {
         201: vehicleTransactionSchema,
       },
+      summary: 'Delete a transaction',
+    },
+    scrapAndCreateTransaction: {
+      method: 'POST',
+      path: '/scrap-and-create-transaction',
+      body: scraVehicleDataSchema,
+      responses: {
+        201: basicResponseSchema,
+      },
+      summary: 'Scrap and create a transaction',
     },
   },
   {
