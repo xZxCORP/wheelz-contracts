@@ -3,7 +3,11 @@ import { vehicleSchema } from '@zcorp/shared-typing-wheelz';
 
 import { basicResponseSchema } from '../shared/basic-response.schema.ts.js';
 import { healthContract } from '../shared/health/contract.js';
-import { createPaginatedSchema, paginationParametersSchema } from '../shared/index.js';
+import {
+  createPaginatedSchema,
+  type InferPaginatedSchema,
+  paginationParametersSchema,
+} from '../shared/index.js';
 import { getVehicleParametersSchema } from './schemas/get-vehicle-parameters.js';
 import { processTransactionBatchSchema } from './schemas/process-transaction-batch.js';
 
@@ -64,3 +68,5 @@ export const chainContract = c.router({
   chain: contract,
   health: healthContract,
 });
+
+export type PaginatedVehicles = InferPaginatedSchema<typeof vehicleSchema>;
