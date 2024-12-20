@@ -1,5 +1,6 @@
 import { initContract } from '@ts-rest/core';
 import { vehicleSchema } from '@zcorp/shared-typing-wheelz';
+import { z } from 'zod';
 
 import { basicResponseSchema } from '../shared/basic-response.schema.ts.js';
 import { healthContract } from '../shared/health/contract.js';
@@ -34,8 +35,9 @@ export const contract = c.router(
       summary: 'Get all vehicles from the chain',
     },
     refreshChainState: {
-      method: 'GET',
+      method: 'POST',
       path: '/chain/refresh-state',
+      body: z.object({}),
       responses: {
         200: basicResponseSchema,
         400: basicResponseSchema,
