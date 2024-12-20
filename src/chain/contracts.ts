@@ -57,8 +57,9 @@ export const contract = c.router(
       summary: 'Trigger process transaction batch',
     },
     verifyChainState: {
-      method: 'GET',
+      method: 'POST',
       path: '/chain/verify',
+      body: z.object({}),
       responses: {
         200: basicResponseSchema,
         400: basicResponseSchema,
