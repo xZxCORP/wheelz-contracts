@@ -14,19 +14,19 @@
     "release": "npm run lint && bumpp package.json --commit --push --tag && npm run build && npm publish"
   },
   "devDependencies": {
-    "@types/node": "^20.14.2",
+    "@types/node": "^22.10.2",
     "@zcorp/eslint-config": "latest",
     "@zcorp/prettier-config": "latest",
     "@zcorp/shared-typing-wheelz": "latest",
     "@zcorp/tsconfig": "latest",
-    "bumpp": "^9.4.1",
-    "typescript": "^5.6.2"
+    "bumpp": "^9.9.1",
+    "typescript": "^5.7.2"
   },
   "publishConfig": {
     "access": "public"
   },
   "dependencies": {
     "@ts-rest/core": "^3.51.0",
-    "zod": "^3.23.8"
+    "zod": "^3.24.1"
   }
 }
