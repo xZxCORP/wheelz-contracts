@@ -1,5 +1,5 @@
 import { initContract } from '@ts-rest/core';
-import { vehicleSchema } from '@zcorp/shared-typing-wheelz';
+import { chainStatsSchema, vehicleSchema } from '@zcorp/shared-typing-wheelz';
 import { z } from 'zod';
 
 import { basicResponseSchema } from '../shared/basic-response.schema.ts.js';
@@ -66,6 +66,14 @@ export const contract = c.router(
         500: basicResponseSchema,
       },
       summary: 'Verify chain state',
+    },
+    stats: {
+      method: 'GET',
+      path: '/chain/stats',
+      responses: {
+        200: chainStatsSchema,
+      },
+      summary: 'Get chain stats',
     },
   },
   {

@@ -3,6 +3,7 @@ import {
   createVehicleTransactionDataSchema,
   deleteVehicleTransactionDataSchema,
   scrapVehicleDataSchema,
+  transactionStatsSchema,
   updateVehicleTransactionDataSchema,
   vehicleTransactionSchema,
 } from '@zcorp/shared-typing-wheelz';
@@ -73,6 +74,14 @@ const contract = c.router(
         201: basicResponseSchema,
       },
       summary: 'Scrap and create a transaction',
+    },
+    stats: {
+      method: 'GET',
+      path: '/transactions/stats',
+      responses: {
+        200: transactionStatsSchema,
+      },
+      summary: 'Get transactions stats',
     },
   },
   {
