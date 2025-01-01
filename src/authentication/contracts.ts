@@ -7,6 +7,7 @@ import { userResponseSchema } from '../user/schemas/users-response.schema.js';
 import loginSchema from './schemas/login.js';
 import registerSchema from './schemas/register.js';
 import { tokenSchema } from './schemas/token.js';
+import { userInformationSchema } from './schemas/user_information.js';
 
 const c = initContract();
 
@@ -35,7 +36,7 @@ const contract = c.router(
       path: '/verify',
       body: tokenSchema,
       responses: {
-        200: z.number(),
+        201: userInformationSchema,
       },
       summary: 'Verify JWT and responds with userId',
     },
