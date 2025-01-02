@@ -7,6 +7,7 @@ import {
   updateVehicleTransactionDataSchema,
   vehicleTransactionSchema,
 } from '@zcorp/shared-typing-wheelz';
+import { z } from 'zod';
 
 import { basicResponseSchema } from '../shared/basic-response.schema.ts.js';
 import { healthContract } from '../shared/health/contract.js';
@@ -41,6 +42,7 @@ const contract = c.router(
     submitTransaction: {
       method: 'POST',
       path: '/transactions',
+      query: z.object({ force: z.coerce.boolean().default(false) }),
       body: createVehicleTransactionDataSchema,
       responses: {
         201: vehicleTransactionSchema,
