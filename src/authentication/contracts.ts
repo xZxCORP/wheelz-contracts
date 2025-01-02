@@ -1,4 +1,5 @@
 import { initContract } from '@ts-rest/core';
+
 import { basicResponseSchema } from '../shared/basic-response.schema.ts.js';
 import { healthContract } from '../shared/health/contract.js';
 import { userResponseSchema } from '../user/schemas/users-response.schema.js';
@@ -34,7 +35,7 @@ const contract = c.router(
       path: '/verify',
       body: tokenSchema,
       responses: {
-        201: userInformationSchema,
+        200: userInformationSchema,
       },
       summary: 'Verify JWT and responds with userId',
     },
