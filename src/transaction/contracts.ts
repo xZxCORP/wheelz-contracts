@@ -42,7 +42,7 @@ const contract = c.router(
     submitTransaction: {
       method: 'POST',
       path: '/transactions',
-      query: z.object({ force: z.boolean().default(false) }),
+      query: z.object({ force: z.coerce.boolean().default(false) }),
       body: createVehicleTransactionDataSchema,
       responses: {
         201: vehicleTransactionSchema,
