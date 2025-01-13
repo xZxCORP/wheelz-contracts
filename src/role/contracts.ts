@@ -1,8 +1,8 @@
 import { initContract } from '@ts-rest/core';
 import { z } from 'zod';
 
-import { healthContract } from '../shared/health/contract.js';
 import { basicResponseSchema } from '../shared/basic-response.schema.ts.js';
+import { healthContract } from '../shared/health/contract.js';
 
 const c = initContract();
 
@@ -10,7 +10,7 @@ const contract = c.router(
   {
     getRoles: {
       method: 'GET',
-      path: '/role/:id',
+      path: '/users/:id/role',
       responses: {
         200: z.array(z.string()),
       },
