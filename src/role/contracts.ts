@@ -8,7 +8,7 @@ const c = initContract();
 const contract = c.router({
   getRoles: {
     method: 'GET',
-    path: '/role/:id/',
+    path: '/role/:id',
     responses: {
       200: z.array(z.string()),
     },
@@ -17,6 +17,6 @@ const contract = c.router({
 });
 
 export const roleContract = c.router({
-  authentication: contract,
+  contract: contract,
   health: healthContract,
 });
