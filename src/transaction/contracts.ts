@@ -53,6 +53,7 @@ const contract = c.router(
     updateTransaction: {
       method: 'PATCH',
       path: '/transactions',
+      query: z.object({ force: z.coerce.boolean().default(false) }),
       body: updateVehicleTransactionDataSchema,
       responses: {
         201: vehicleTransactionSchema,
