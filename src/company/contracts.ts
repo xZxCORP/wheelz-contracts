@@ -1,5 +1,4 @@
 import { initContract } from '@ts-rest/core';
-import { z } from 'zod';
 
 import { basicResponseSchema } from '../shared/basic-response.schema.ts.js';
 import { healthContract } from '../shared/health/contract.js';
