@@ -1,5 +1,9 @@
 import { z } from 'zod';
 
+const companyTypeSchema = z.enum(['insurance_provider', 'other']);
+const companySizeSchema = z.enum(['micro', 'small', 'medium', 'large']);
+const companySectorSchema = z.enum(['private', 'public']);
+
 export const companySchema = z.object({
   id: z.number(),
   name: z.string(),
@@ -8,10 +12,13 @@ export const companySchema = z.object({
   headquarters_address: z.string(),
   country: z.string(),
   manager_id: z.number(),
-  company_type: z.enum(['insurance_provider', 'other']),
-  company_size: z.enum(['micro', 'small', 'medium', 'large']),
-  company_sector: z.enum(['private', 'public']),
+  company_type: companyTypeSchema,
+  company_size: companySizeSchema,
+  company_sector: companySectorSchema,
   createdAt: z.string(),
 });
 
+export type CompanyType = z.infer<typeof companyTypeSchema>;
+export type CompanySize = z.infer<typeof companySizeSchema>;
+export type CompanySector = z.infer<typeof companySectorSchema>;
 export type Company = z.infer<typeof companySchema>;
