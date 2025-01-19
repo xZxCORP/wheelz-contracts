@@ -21,4 +21,9 @@ export const companySchema = z.object({
 export type CompanyType = z.infer<typeof companyTypeSchema>;
 export type CompanySize = z.infer<typeof companySizeSchema>;
 export type CompanySector = z.infer<typeof companySectorSchema>;
+
+export const companyTypeValues = companyTypeSchema.options;
+export const companySizeValues = companySizeSchema.options;
+export const companySectorValues = companySectorSchema.options;
+
 export type Company = z.infer<typeof companySchema>;
