@@ -1,6 +1,7 @@
 import { z } from 'zod';
-import { companySchema } from './company.schema.js';
+
 import { userCreateSchema } from '../../user/index.js';
+import { companySchema } from './company.schema.js';
 
 const createSchema = companySchema.pick({
   name: true,
@@ -14,7 +15,7 @@ const createSchema = companySchema.pick({
 
 export const companyCreateSchema = z.object({
   owner: userCreateSchema,
-  company: createSchema
-})
+  company: createSchema,
+});
 
 export type CompanyCreate = z.infer<typeof companyCreateSchema>;
