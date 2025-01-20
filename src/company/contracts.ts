@@ -5,6 +5,7 @@ import { healthContract } from '../shared/health/contract.js';
 import {
   companiesResponseWithUsersSchema,
   companyCreateSchema,
+  companyCreateWithOwnerIdSchema,
   companyResponseWithUsersSchema,
   companyUpdateSchema,
 } from './schemas/index.js';
@@ -41,7 +42,7 @@ const contract = c.router(
     create: {
       method: 'POST',
       path: '/companies',
-      body: companyCreateSchema,
+      body: companyCreateWithOwnerIdSchema,
       responses: {
         201: companyResponseWithUsersSchema,
       },
