@@ -39,15 +39,7 @@ const contract = c.router(
       },
       summary: 'Get a transaction by id',
     },
-    revertTransactionById: {
-      method: 'GET',
-      path: '/transactions/:id/revert',
-      responses: {
-        201: basicResponseSchema,
-        404: basicResponseSchema,
-      },
-      summary: 'Revert a transaction by id',
-    },
+
     submitTransaction: {
       method: 'POST',
       path: '/transactions',
@@ -87,6 +79,7 @@ const contract = c.router(
       },
       summary: 'Scrap and create a transaction',
     },
+
     stats: {
       method: 'GET',
       path: '/transactions/stats',
@@ -94,6 +87,18 @@ const contract = c.router(
         200: transactionStatsSchema,
       },
       summary: 'Get transactions stats',
+    },
+    revertTransaction: {
+      method: 'POST',
+      path: '/transactions/revert',
+      body: z.object({
+        id: z.string(),
+      }),
+      responses: {
+        201: basicResponseSchema,
+        404: basicResponseSchema,
+      },
+      summary: 'Revert a transaction by id',
     },
   },
   {
