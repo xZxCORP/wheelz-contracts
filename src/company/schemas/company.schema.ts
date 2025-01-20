@@ -8,7 +8,7 @@ export const companySchema = z.object({
   id: z.number(),
   name: z.string(),
   vat_number: z.string(),
-  identified: z.boolean(),
+  is_identified: z.boolean(),
   headquarters_address: z.string(),
   country: z.string(),
   manager_id: z.number(),
