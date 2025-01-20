@@ -16,3 +16,4 @@ export const companyResponseWithUsers = z.object({
 });
 
 export type CompanyResponse = z.infer<typeof companyResponseSchema>;
+export type CompanyWithUsersResponse = z.infer<typeof companyResponseWithUsers>;
