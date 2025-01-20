@@ -3,19 +3,20 @@ import { z } from 'zod';
 import { userCreateSchema } from '../../user/index.js';
 import { companySchema } from './company.schema.js';
 
-const createSchema = companySchema.pick({
+export const companyCreateSchema = companySchema.pick({
   name: true,
-  vat_number: true,
-  company_type: true,
-  company_sector: true,
-  company_size: true,
-  headquarters_address: true,
+  vatNumber: true,
+  companyType: true,
+  companySector: true,
+  companySize: true,
+  headquartersAddress: true,
   country: true,
 });
 
-export const companyCreateSchema = z.object({
+export const companyCreateWithOwnerSchema = z.object({
   owner: userCreateSchema,
-  company: createSchema,
+  company: companyCreateSchema,
 });
 
-export type CompanyCreate = z.infer<typeof companyCreateSchema>;
+export type CompanyCreateWithOwner = z.infer<typeof companyCreateWithOwnerSchema>;
+export type CompanyCreate = z.infer<typeof companyCreateSchema>
