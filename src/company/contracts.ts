@@ -4,7 +4,6 @@ import { basicResponseSchema } from '../shared/basic-response.schema.ts.js';
 import { healthContract } from '../shared/health/contract.js';
 import {
   companiesResponseWithUsersSchema,
-  companyCreateSchema,
   companyCreateWithOwnerIdSchema,
   companyResponseWithUsersSchema,
   companyUpdateSchema,
