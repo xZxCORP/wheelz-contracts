@@ -3,9 +3,9 @@ import { initContract } from '@ts-rest/core';
 import { basicResponseSchema } from '../shared/basic-response.schema.ts.js';
 import { healthContract } from '../shared/health/contract.js';
 import {
-  companiesResponseSchema,
+  companiesResponseWithUsersSchema,
   companyCreateSchema,
-  companyResponseSchema,
+  companyResponseWithUsersSchema,
   companyUpdateSchema,
 } from './schemas/index.js';
 
@@ -17,7 +17,7 @@ const contract = c.router(
       method: 'GET',
       path: '/companies',
       responses: {
-        200: companiesResponseSchema,
+        200: companiesResponseWithUsersSchema,
       },
       summary: 'Get all companies',
     },
@@ -25,7 +25,7 @@ const contract = c.router(
       method: 'GET',
       path: '/companies/:id',
       responses: {
-        200: companyResponseSchema,
+        200: companyResponseWithUsersSchema,
       },
       summary: 'Get one company',
     },
@@ -34,7 +34,7 @@ const contract = c.router(
       path: '/companies/:id',
       body: companyUpdateSchema,
       responses: {
-        200: companyResponseSchema,
+        200: companyResponseWithUsersSchema,
       },
       summary: 'Update one company',
     },
@@ -43,7 +43,7 @@ const contract = c.router(
       path: '/companies',
       body: companyCreateSchema,
       responses: {
-        201: companyResponseSchema,
+        201: companyResponseWithUsersSchema,
       },
       summary: 'Create a new company',
     },

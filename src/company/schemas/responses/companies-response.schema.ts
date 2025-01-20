@@ -1,7 +1,7 @@
 import { z } from 'zod';
 
-import { companyWithUserSchema } from './company-response.schema.js';
 import { companySchema } from '../company.schema.js';
+import { companyWithUserSchema } from './company-response.schema.js';
 
 export const companiesResponseWithUsersSchema = z.object({
   data: z.array(companyWithUserSchema),
