@@ -3,7 +3,7 @@ import { z } from 'zod';
 import { userCreateSchema } from '../../user/index.js';
 import { companySchema } from './company.schema.js';
 
-export const companyCreateSchema = companySchema.pick({
+export const companyCreateWithOwnerIdSchema = companySchema.pick({
   name: true,
   vatNumber: true,
   companyType: true,
@@ -14,10 +14,15 @@ export const companyCreateSchema = companySchema.pick({
   managerId: true,
 });
 
+export const companyCreateSchema = companyCreateWithOwnerIdSchema.omit({
+  managerId: true,
+});
+
 export const companyCreateWithOwnerSchema = z.object({
   owner: userCreateSchema,
-  company: companyCreateSchema.omit({ managerId: true }),
+  company: companyCreateSchema,
 });
 
 export type CompanyCreateWithOwner = z.infer<typeof companyCreateWithOwnerSchema>;
+export type CompanyCreateWithOwnerId = z.infer<typeof companyCreateWithOwnerIdSchema>;
 export type CompanyCreate = z.infer<typeof companyCreateSchema>;
