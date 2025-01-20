@@ -19,4 +19,4 @@ export const companyCreateWithOwnerSchema = z.object({
 });
 
 export type CompanyCreateWithOwner = z.infer<typeof companyCreateWithOwnerSchema>;
-export type CompanyCreate = z.infer<typeof companyCreateSchema>
+export type CompanyCreate = z.infer<typeof companyCreateSchema>;
