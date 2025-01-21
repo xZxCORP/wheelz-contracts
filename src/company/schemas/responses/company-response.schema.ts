@@ -5,7 +5,7 @@ import { companySchema } from '../company.schema.js';
 import { membershipRoleSchema } from '../membership.schema.js';
 
 export const companyWithUserSchema = companySchema.extend({
-  users: z.array(userSchema.extend({membershipRole: membershipRoleSchema.optional()})),
+  users: z.array(userSchema.extend({ membershipRole: membershipRoleSchema.optional() })),
 });
 
 export const companyResponseSchema = z.object({
