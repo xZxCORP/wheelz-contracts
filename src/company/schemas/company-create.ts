@@ -11,11 +11,11 @@ export const companyCreateWithOwnerIdSchema = companySchema.pick({
   companySize: true,
   headquartersAddress: true,
   country: true,
-  managerId: true,
+  ownerId: true,
 });
 
 export const companyCreateSchema = companyCreateWithOwnerIdSchema.omit({
-  managerId: true,
+  ownerId: true,
 });
 
 export const companyCreateWithOwnerSchema = z.object({

@@ -11,7 +11,7 @@
   "scripts": {
     "lint": "eslint . --fix",
     "build": "tsc",
-    "release": "npm run lint && bumpp package.json --commit --push --tag && npm run build && npm publish"
+    "release": "npm i && npm run lint && bumpp package.json --commit --push --tag && npm run build && npm publish"
   },
   "devDependencies": {
     "@types/node": "^22.10.2",

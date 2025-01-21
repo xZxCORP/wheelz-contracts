@@ -11,7 +11,7 @@ export const companySchema = z.object({
   isIdentified: z.boolean(),
   headquartersAddress: z.string(),
   country: z.string(),
-  managerId: z.number(),
+  ownerId: z.number(),
   companyType: companyTypeSchema,
   companySize: companySizeSchema,
   companySector: companySectorSchema,
