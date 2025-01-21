@@ -6,6 +6,7 @@ import {
   transactionStatsSchema,
   updateVehicleTransactionDataSchema,
   vehicleTransactionSchema,
+  vinMetadatasSchema,
 } from '@zcorp/shared-typing-wheelz';
 import { z } from 'zod';
 
@@ -87,6 +88,14 @@ const contract = c.router(
         200: transactionStatsSchema,
       },
       summary: 'Get transactions stats',
+    },
+    getVinMetadatas: {
+      method: 'GET',
+      path: '/transactions/:vin/metadatas',
+      responses: {
+        200: vinMetadatasSchema,
+      },
+      summary: 'Get metadatas for a vin',
     },
     revertTransaction: {
       method: 'POST',
