@@ -3,12 +3,12 @@ import { z } from 'zod';
 
 import { basicResponseSchema } from '../shared/basic-response.schema.ts.js';
 import { healthContract } from '../shared/health/contract.js';
+import { createPaginatedSchema } from '../shared/index.js';
+import { usersResponseSchema } from './schemas/responses/user-response.schema.js';
+import { userResponseSchema } from './schemas/responses/users-response.schema.js';
 import { userSchema } from './schemas/user.schema.js';
 import { userCreateSchema } from './schemas/user-create.schema.js';
-import { usersResponseSchema } from './schemas/responses/user-response.schema.js';
 import { userUpdateSchema } from './schemas/user-update.schema.js';
-import { userResponseSchema } from './schemas/responses/users-response.schema.js';
-import { createPaginatedSchema } from '../shared/index.js';
 
 const c = initContract();
 

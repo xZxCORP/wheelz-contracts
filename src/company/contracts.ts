@@ -2,13 +2,13 @@ import { initContract } from '@ts-rest/core';
 
 import { basicResponseSchema } from '../shared/basic-response.schema.ts.js';
 import { healthContract } from '../shared/health/contract.js';
+import { createPaginatedSchema } from '../shared/index.js';
 import {
   companiesResponseWithUsersSchema,
   companyCreateWithOwnerIdSchema,
   companyResponseWithUsersSchema,
   companyUpdateSchema,
 } from './schemas/index.js';
-import { createPaginatedSchema } from '../shared/index.js';
 
 const c = initContract();
 
