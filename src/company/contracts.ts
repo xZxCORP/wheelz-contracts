@@ -2,7 +2,7 @@ import { initContract } from '@ts-rest/core';
 
 import { basicResponseSchema } from '../shared/basic-response.schema.ts.js';
 import { healthContract } from '../shared/health/contract.js';
-import { createPaginatedSchema } from '../shared/index.js';
+import { createPaginatedSchema, paginationParametersSchema } from '../shared/index.js';
 import {
   companiesResponseWithUsersSchema,
   companyCreateWithOwnerIdSchema,
@@ -17,6 +17,7 @@ const contract = c.router(
     index: {
       method: 'GET',
       path: '/companies',
+      query: paginationParametersSchema,
       responses: {
         200: createPaginatedSchema(companiesResponseWithUsersSchema),
       },

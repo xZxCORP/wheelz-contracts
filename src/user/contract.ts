@@ -3,7 +3,7 @@ import { z } from 'zod';
 
 import { basicResponseSchema } from '../shared/basic-response.schema.ts.js';
 import { healthContract } from '../shared/health/contract.js';
-import { createPaginatedSchema } from '../shared/index.js';
+import { createPaginatedSchema, paginationParametersSchema } from '../shared/index.js';
 import { usersResponseSchema } from './schemas/responses/user-response.schema.js';
 import { userResponseSchema } from './schemas/responses/users-response.schema.js';
 import { userSchema } from './schemas/user.schema.js';
@@ -17,9 +17,7 @@ const contract = c.router(
     getUsers: {
       method: 'GET',
       path: '/users',
-      query: z.object({
-        email: z.string().email().optional(),
-      }),
+      query: paginationParametersSchema.extend({ email: z.string().email().optional() }),
       responses: {
         200: createPaginatedSchema(usersResponseSchema),
       },
