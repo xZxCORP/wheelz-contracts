@@ -2,7 +2,11 @@ import { initContract } from '@ts-rest/core';
 
 import { basicResponseSchema } from '../shared/basic-response.schema.ts.js';
 import { healthContract } from '../shared/health/contract.js';
-import { createPaginatedSchema, paginationParametersSchema, type InferPaginatedSchema } from '../shared/index.js';
+import {
+  createPaginatedSchema,
+  type InferPaginatedSchema,
+  paginationParametersSchema,
+} from '../shared/index.js';
 import {
   companiesResponseWithUsersSchema,
   companyCreateWithOwnerIdSchema,
