@@ -8,7 +8,6 @@ import {
   paginationParametersSchema,
 } from '../shared/index.js';
 import {
-  companiesResponseWithUsersSchema,
   companyCreateWithOwnerIdSchema,
   companyResponseWithUsersSchema,
   companyUpdateSchema,
@@ -24,7 +23,7 @@ const contract = c.router(
       path: '/companies',
       query: paginationParametersSchema,
       responses: {
-        200: createPaginatedSchema(companiesResponseWithUsersSchema),
+        200: createPaginatedSchema(companyWithUserSchema),
       },
       summary: 'Get all companies',
     },

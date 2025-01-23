@@ -8,7 +8,6 @@ import {
   type InferPaginatedSchema,
   paginationParametersSchema,
 } from '../shared/index.js';
-import { usersResponseSchema } from './schemas/responses/user-response.schema.js';
 import { userResponseSchema } from './schemas/responses/users-response.schema.js';
 import { userSchema } from './schemas/user.schema.js';
 import { userCreateSchema } from './schemas/user-create.schema.js';
@@ -23,7 +22,7 @@ const contract = c.router(
       path: '/users',
       query: paginationParametersSchema.extend({ email: z.string().email().optional() }),
       responses: {
-        200: createPaginatedSchema(usersResponseSchema),
+        200: createPaginatedSchema(userSchema),
       },
 
       summary: 'Get users',
