@@ -2,12 +2,13 @@ import { initContract } from '@ts-rest/core';
 
 import { basicResponseSchema } from '../shared/basic-response.schema.ts.js';
 import { healthContract } from '../shared/health/contract.js';
-import { createPaginatedSchema, paginationParametersSchema } from '../shared/index.js';
+import { createPaginatedSchema, paginationParametersSchema, type InferPaginatedSchema } from '../shared/index.js';
 import {
   companiesResponseWithUsersSchema,
   companyCreateWithOwnerIdSchema,
   companyResponseWithUsersSchema,
   companyUpdateSchema,
+  companyWithUserSchema,
 } from './schemas/index.js';
 
 const c = initContract();
@@ -64,3 +65,5 @@ export const companyContract = c.router({
   contract: contract,
   health: healthContract,
 });
+
+export type PaginatedCompaniesWithUser = InferPaginatedSchema<typeof companyWithUserSchema>;
