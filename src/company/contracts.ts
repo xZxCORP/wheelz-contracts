@@ -8,6 +8,7 @@ import {
   companyResponseWithUsersSchema,
   companyUpdateSchema,
 } from './schemas/index.js';
+import { createPaginatedSchema } from '../shared/index.js';
 
 const c = initContract();
 
@@ -17,7 +18,7 @@ const contract = c.router(
       method: 'GET',
       path: '/companies',
       responses: {
-        200: companiesResponseWithUsersSchema,
+        200: createPaginatedSchema(companiesResponseWithUsersSchema),
       },
       summary: 'Get all companies',
     },

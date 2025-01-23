@@ -2,7 +2,7 @@ import { initContract } from '@ts-rest/core';
 
 import { basicResponseSchema } from '../shared/basic-response.schema.ts.js';
 import { healthContract } from '../shared/health/contract.js';
-import { userResponseSchema } from '../user/schemas/users-response.schema.js';
+import { userResponseSchema } from '../user/schemas/responses/users-response.schema.js';
 import loginSchema from './schemas/login.js';
 import registerSchema from './schemas/register.js';
 import { tokenSchema } from './schemas/token.js';
