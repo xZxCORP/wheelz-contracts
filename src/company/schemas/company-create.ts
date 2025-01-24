@@ -1,7 +1,7 @@
 import { z } from 'zod';
 
-import { userCreateSchema } from '../../user/index.js';
 import { companySchema } from './company.schema.js';
+import registerSchema from '../../authentication/schemas/register.js';
 
 export const companyCreateWithOwnerIdSchema = companySchema.pick({
   name: true,
@@ -19,7 +19,7 @@ export const companyCreateSchema = companyCreateWithOwnerIdSchema.omit({
 });
 
 export const companyCreateWithOwnerSchema = z.object({
-  owner: userCreateSchema,
+  owner: registerSchema,
   company: companyCreateSchema,
 });
 
