@@ -1,5 +1,6 @@
 import { initContract } from '@ts-rest/core';
 
+import { companyCreateWithOwnerSchema, companyWithUserSchema } from '../company/index.js';
 import { basicResponseSchema } from '../shared/basic-response.schema.ts.js';
 import { healthContract } from '../shared/health/contract.js';
 import { userResponseSchema } from '../user/schemas/responses/users-response.schema.js';
@@ -38,6 +39,15 @@ const contract = c.router(
         200: userInformationSchema,
       },
       summary: 'Verify JWT and responds with userId',
+    },
+    registerAsCompany: {
+      method: 'POST',
+      path: '/companies/register',
+      body: companyCreateWithOwnerSchema,
+      responses: {
+        201: companyWithUserSchema,
+      },
+      summary: 'Create a company with the owner',
     },
   },
   {
