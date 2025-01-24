@@ -1,6 +1,6 @@
 import { initContract } from '@ts-rest/core';
 
-import { companyCreateWithOwnerSchema, companyResponseWithUsersSchema, companyWithUserSchema } from '../company/index.js';
+import { companyCreateWithOwnerSchema, companyResponseWithUsersSchema } from '../company/index.js';
 import { basicResponseSchema } from '../shared/basic-response.schema.ts.js';
 import { healthContract } from '../shared/health/contract.js';
 import { userResponseSchema } from '../user/schemas/responses/users-response.schema.js';
