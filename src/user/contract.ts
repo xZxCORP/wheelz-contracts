@@ -9,7 +9,7 @@ import {
   paginationParametersSchema,
 } from '../shared/index.js';
 import { userResponseSchema } from './schemas/responses/users-response.schema.js';
-import { userSchema, userSchemaWithCompany } from './schemas/user.schema.js';
+import { userSchemaWithCompany } from './schemas/user.schema.js';
 import { userCreateSchema } from './schemas/user-create.schema.js';
 import { userUpdateSchema } from './schemas/user-update.schema.js';
 
@@ -77,4 +77,4 @@ export const userContract = c.router({
   health: healthContract,
 });
 
-export type PaginatedUsers = InferPaginatedSchema<typeof userSchema>;
+export type PaginatedUsers = InferPaginatedSchema<typeof userSchemaWithCompany>;

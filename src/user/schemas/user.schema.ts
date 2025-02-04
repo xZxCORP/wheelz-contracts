@@ -1,4 +1,5 @@
 import { z } from 'zod';
+
 import { companySchema } from '../../company/index.js';
 
 export const userSchema = z.object({
@@ -12,7 +13,7 @@ export const userSchema = z.object({
 
 export const userSchemaWithCompany = userSchema.extend({
   company: companySchema.optional(),
-})
+});
 
 export type User = z.infer<typeof userSchema>;
-export type UserWithCompany = z.infer<typeof userSchemaWithCompany>
+export type UserWithCompany = z.infer<typeof userSchemaWithCompany>;
