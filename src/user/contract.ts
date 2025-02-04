@@ -9,7 +9,7 @@ import {
   paginationParametersSchema,
 } from '../shared/index.js';
 import { userResponseSchema } from './schemas/responses/users-response.schema.js';
-import { userSchema } from './schemas/user.schema.js';
+import { userSchema, userSchemaWithCompany } from './schemas/user.schema.js';
 import { userCreateSchema } from './schemas/user-create.schema.js';
 import { userUpdateSchema } from './schemas/user-update.schema.js';
 
@@ -22,7 +22,7 @@ const contract = c.router(
       path: '/users',
       query: paginationParametersSchema.extend({ email: z.string().email().optional() }),
       responses: {
-        200: createPaginatedSchema(userSchema),
+        200: createPaginatedSchema(userSchemaWithCompany),
       },
 
       summary: 'Get users',
@@ -32,7 +32,7 @@ const contract = c.router(
       path: `/users/:id`,
       responses: {
         200: z.object({
-          data: userSchema,
+          data: userSchemaWithCompany,
         }),
       },
       summary: 'Get a user by id',
