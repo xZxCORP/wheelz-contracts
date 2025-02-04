@@ -6,11 +6,11 @@ const companySectorSchema = z.enum(['private', 'public']);
 
 export const companySchema = z.object({
   id: z.number(),
-  name: z.string(),
-  vatNumber: z.string(),
+  name: z.string().min(1),
+  vatNumber: z.string().min(1),
   isIdentified: z.boolean(),
-  headquartersAddress: z.string(),
-  country: z.string(),
+  headquartersAddress: z.string().min(1),
+  country: z.string().min(1),
   ownerId: z.number(),
   companyType: companyTypeSchema,
   companySize: companySizeSchema,
