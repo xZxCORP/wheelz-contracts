@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-import registerSchema from '../../authentication/schemas/register.js';
+import { registerSchema } from '../../authentication/index.js';
 import { companySchema } from './company.schema.js';
 
 export const companyCreateWithOwnerIdSchema = companySchema.pick({
