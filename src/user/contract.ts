@@ -32,7 +32,7 @@ const contract = c.router(
       path: '/raw-users',
       query: z.object({ email: z.string().email().optional() }),
       responses: {
-        200: z.array(userSchema),
+        200: z.array(userSchemaWithCompany),
       },
 
       summary: 'Get Raw Users',
