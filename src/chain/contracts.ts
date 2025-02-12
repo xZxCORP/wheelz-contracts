@@ -94,4 +94,4 @@ export const chainContract = c.router({
   health: healthContract,
 });
 
-export type PaginatedVehicles = InferPaginatedSchema<typeof vehicleSchema>;
+export type PaginatedVehicles = InferPaginatedSchema<typeof vehicleWithUserIdSchema>;
