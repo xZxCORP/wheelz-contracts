@@ -1,9 +1,5 @@
 import { initContract } from '@ts-rest/core';
-import {
-  chainStatsSchema,
-  vehicleSchema,
-  vehicleWithUserIdSchema,
-} from '@zcorp/shared-typing-wheelz';
+import { chainStatsSchema, vehicleWithUserIdSchema } from '@zcorp/shared-typing-wheelz';
 import { z } from 'zod';
 
 import { basicResponseSchema } from '../shared/basic-response.schema.ts.js';
