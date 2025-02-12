@@ -1,5 +1,9 @@
 import { initContract } from '@ts-rest/core';
-import { chainStatsSchema, vehicleSchema } from '@zcorp/shared-typing-wheelz';
+import {
+  chainStatsSchema,
+  vehicleSchema,
+  vehicleWithUserIdSchema,
+} from '@zcorp/shared-typing-wheelz';
 import { z } from 'zod';
 
 import { basicResponseSchema } from '../shared/basic-response.schema.ts.js';
@@ -21,7 +25,7 @@ export const contract = c.router(
       path: '/chain/vehicles/single',
       query: getVehicleParametersSchema,
       responses: {
-        200: vehicleSchema,
+        200: vehicleWithUserIdSchema,
       },
       summary: 'Get vehicle from the chain by vin or license plate',
     },
@@ -30,7 +34,7 @@ export const contract = c.router(
       path: '/chain/vehicles',
       query: paginationParametersSchema,
       responses: {
-        200: createPaginatedSchema(vehicleSchema),
+        200: createPaginatedSchema(vehicleWithUserIdSchema),
       },
       summary: 'Get all vehicles from the chain',
     },
