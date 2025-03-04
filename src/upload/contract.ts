@@ -40,6 +40,6 @@ const contract = c.router(
   }
 );
 export const uploadContract = c.router({
-  users: contract,
+  upload: contract,
   health: healthContract,
 });
