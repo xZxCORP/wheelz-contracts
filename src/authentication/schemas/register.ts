@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-const registerSchema = z.object({
+export const registerSchema = z.object({
   lastname: z.string().min(1),
   firstname: z.string().min(1),
   email: z.string().email().min(1),
@@ -8,4 +8,3 @@ const registerSchema = z.object({
 });
 
 export type Register = z.infer<typeof registerSchema>;
-export default registerSchema;

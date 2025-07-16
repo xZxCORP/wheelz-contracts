@@ -17,7 +17,7 @@ const c = initContract();
 
 const contract = c.router(
   {
-    getUsers: {
+    getPaginatedUsers: {
       method: 'GET',
       path: '/users',
       query: paginationParametersSchema.extend({ email: z.string().email().optional() }),
@@ -25,7 +25,17 @@ const contract = c.router(
         200: createPaginatedSchema(userSchemaWithCompany),
       },
 
-      summary: 'Get users',
+      summary: 'Get Paginated Users',
+    },
+    getRawUsers: {
+      method: 'GET',
+      path: '/raw-users',
+      query: z.object({ query: z.string().optional() }),
+      responses: {
+        200: z.array(userSchemaWithCompany),
+      },
+
+      summary: 'Get Raw Users',
     },
     getUserById: {
       method: 'GET',

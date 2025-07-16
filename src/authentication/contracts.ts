@@ -4,8 +4,8 @@ import { companyCreateWithOwnerSchema, companyResponseWithUsersSchema } from '..
 import { basicResponseSchema } from '../shared/basic-response.schema.ts.js';
 import { healthContract } from '../shared/health/contract.js';
 import { userResponseSchema } from '../user/schemas/responses/users-response.schema.js';
-import loginSchema from './schemas/login.js';
-import registerSchema from './schemas/register.js';
+import { loginSchema } from './schemas/login.js';
+import { registerSchema } from './schemas/register.js';
 import { tokenSchema } from './schemas/token.js';
 import { userInformationSchema } from './schemas/user-information.js';
 
