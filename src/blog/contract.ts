@@ -67,7 +67,7 @@ const contract = c.router(
   }
 );
 export const blogContract = c.router({
-  chain: contract,
+  contract: contract,
   health: healthContract,
 });
 
