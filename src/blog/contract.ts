@@ -26,11 +26,20 @@ const contract = c.router(
     },
     getOneBlogPost: {
       method: 'GET',
-      path: '/blogs/:id',
+      path: '/blogs/find/:id',
       responses: {
         200: z.object({
           data: blogSchema,
         }),
+      },
+    },
+    getOneBySlug: {
+      method: 'GET',
+      path: '/blogs/:id',
+      responses: {
+          200: z.object({
+            data: blogSchema
+          }),
       },
     },
     createBlogPost: {
@@ -38,7 +47,9 @@ const contract = c.router(
       path: '/blogs',
       body: blogCreateSchema,
       responses: {
-        201: blogSchema,
+        201: z.object({
+          data: blogSchema
+        }),
       },
     },
     updateBlogPost: {
@@ -46,7 +57,9 @@ const contract = c.router(
       path: '/blogs/:id',
       body: blogUpdateSchema,
       responses: {
-        200: basicResponseSchema,
+        200: z.object({
+          data: blogSchema
+        }),
       },
     },
     deleteBlogPost: {
