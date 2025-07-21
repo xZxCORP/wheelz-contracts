@@ -37,9 +37,9 @@ const contract = c.router(
       method: 'GET',
       path: '/blogs/:id',
       responses: {
-          200: z.object({
-            data: blogSchema
-          }),
+        200: z.object({
+          data: blogSchema,
+        }),
       },
     },
     createBlogPost: {
@@ -48,7 +48,7 @@ const contract = c.router(
       body: blogCreateSchema,
       responses: {
         201: z.object({
-          data: blogSchema
+          data: blogSchema,
         }),
       },
     },
@@ -58,7 +58,7 @@ const contract = c.router(
       body: blogUpdateSchema,
       responses: {
         200: z.object({
-          data: blogSchema
+          data: blogSchema,
         }),
       },
     },
