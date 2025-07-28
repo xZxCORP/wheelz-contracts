@@ -14,7 +14,7 @@ export const blogUpdateSchema = blogSchema
     keywords: true,
     imageUrl: true,
     publishedAt: true,
-    authorId: true
+    authorId: true,
   });
 
 export type BlogUpdate = z.infer<typeof blogUpdateSchema>;
