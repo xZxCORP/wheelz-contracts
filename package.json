@@ -1,6 +1,6 @@
 {
   "name": "@zcorp/wheelz-contracts",
-  "version": "1.1.45",
+  "version": "1.1.46",
   "type": "module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -19,7 +19,7 @@
     "@zcorp/prettier-config": "latest",
     "@zcorp/shared-typing-wheelz": "latest",
     "@zcorp/tsconfig": "latest",
-    "bumpp": "^9.9.1",
+    "bumpp": "^10.2.0",
     "typescript": "^5.7.2"
   },
   "publishConfig": {
