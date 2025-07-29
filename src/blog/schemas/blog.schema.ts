@@ -20,9 +20,9 @@ export const blogSchema = z.object({
   imageUrl: z.string(),
   slug: z.string(),
   authorId: z.number(),
-  createdAt: z.date().nullable(),
-  publishedAt: z.date(),
+  createdAt: z.date(),
+  publishedAt: z.date().optional(),
 });
 
 export type BlogPost = z.infer<typeof blogSchema>;
-export type editorJSFormat = z.infer<typeof editorJSFormat>;
+export type EditorJSFormat = z.infer<typeof editorJSFormat>;
