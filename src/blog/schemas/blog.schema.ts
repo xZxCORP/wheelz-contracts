@@ -20,7 +20,7 @@ export const blogSchema = z.object({
   imageUrl: z.string(),
   slug: z.string(),
   authorId: z.number(),
-  createdAt: z.date(),
+  createdAt: z.date().nullable(),
   publishedAt: z.date(),
 });
 
