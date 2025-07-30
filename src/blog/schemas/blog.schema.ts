@@ -6,7 +6,7 @@ export const editorJSFormat = z.object({
     z.object({
       id: z.string(),
       type: z.string(),
-      data: z.unknown(),
+      data: z.preprocess((d) => (d == null ? {} : d), z.unknown()),
     })
   ),
   version: z.string(),

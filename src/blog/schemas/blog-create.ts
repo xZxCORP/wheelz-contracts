@@ -1,4 +1,4 @@
-import type { z } from 'zod';
+import { z } from 'zod';
 
 import { blogSchema } from './blog.schema.js';
 
@@ -7,9 +7,10 @@ export const blogCreateSchema = blogSchema
     id: true,
     createdAt: true,
     slug: true,
-  })
-  .partial({
     publishedAt: true,
+  })
+  .extend({
+    publishedAt: z.string().optional(),
   });
 
 export type BlogCreate = z.infer<typeof blogCreateSchema>;
